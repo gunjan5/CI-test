@@ -1,0 +1,7 @@
+{
+    "allowed_images": ["gunjan5/excuse", "nginx", "*"],
+    "allowed_registries": ["", "gcr.io/paloaltonetworks"],
+    "allowed_ports": [80, 8080],
+    "critical_namespaces": ["production"],
+    "allowed_critical_cves": ["CVE-2015-1427", "CVE-2019-5736"]
+}

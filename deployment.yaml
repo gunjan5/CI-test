@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: excuse-deployment
+  labels:
+    app: excuse
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: excuse
+  template:
+    metadata:
+      labels:
+        app: excuse
+    spec:
+      hostNetwork: true
+      hostIPC: false
+      hostPID: true
+      securityContext:
+        runAsUser: 0
+        fsGroup: 2000
+      containers:
+      - name: excuse
+        image: gcr.io/paloaltonetworks/terraform-ansible/nginx:1.7.9
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 8080
